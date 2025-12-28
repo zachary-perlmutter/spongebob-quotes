@@ -21,7 +21,7 @@ const config: Config = {
         'dark-brown': '#3A2F28',
       },
       fontFamily: {
-        'cartoon': ['Comic Sans MS', 'cursive', 'system-ui', 'sans-serif'],
+        'cartoon': ['Comic Sans MS', 'Arial Rounded MT Bold', 'Helvetica Rounded', 'system-ui', '-apple-system', 'sans-serif'],
       },
       animation: {
         'float': 'float 3s ease-in-out infinite',
@@ -49,4 +49,5 @@ const config: Config = {
   plugins: [],
 }
 export default config
+
 
