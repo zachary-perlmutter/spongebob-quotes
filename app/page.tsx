@@ -49,7 +49,7 @@ const quotes = [
     quote: "Holographic meatloaf? My favorite!",
     character: "SpongeBob SquarePants",
   },
-  { quote: "I'm not a Krusty Krab!", character: "SpongeBob SquarePants" },
+  { quote: "I'm not a Krusty Krab!", character: "Patrick Star" },
   {
     quote:
       "Oh, why must every eleven minutes of my life be filled with misery?",
