@@ -60,8 +60,7 @@ const quotes = [
     character: "Squidward Tentacles",
   },
   {
-    quote:
-      "Too bad SpongeBob isn't here to enjoy SpongeBob not being here.",
+    quote: "Too bad SpongeBob isn't here to enjoy SpongeBob not being here.",
     character: "Squidward Tentacles",
   },
   {
@@ -111,8 +110,7 @@ const quotes = [
   },
   { quote: "Oh, SpongeBob... whyyyyy?!", character: "Mrs. Puff" },
   {
-    quote:
-      "What I learned in boating school is... blankety, blankety, blank!",
+    quote: "What I learned in boating school is... blankety, blankety, blank!",
     character: "Mrs. Puff",
   },
   { quote: "No more SpongeBob!", character: "Mrs. Puff" },
@@ -140,8 +138,7 @@ const quotes = [
   },
   { quote: "Felicitations, malefactors!", character: "Plankton" },
   {
-    quote:
-      "The boy cries you a sweater of tears... and you kill him.",
+    quote: "The boy cries you a sweater of tears... and you kill him.",
     character: "Squidward Tentacles",
   },
   {
