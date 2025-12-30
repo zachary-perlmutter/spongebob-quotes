@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 
 const quotes = [
@@ -177,6 +177,8 @@ export default function Home() {
   const [selectedCharacter, setSelectedCharacter] = useState<string | null>(
     null
   );
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   // Get filtered quotes based on selected character
   const filteredQuotes = selectedCharacter
@@ -245,9 +247,45 @@ export default function Home() {
           <p className="text-2xl md:text-4xl font-bold text-deep-navy text-center mb-8 leading-relaxed">
             &ldquo;{quotes[currentQuoteIndex].quote}&rdquo;
           </p>
-          <p className="text-lg md:text-xl text-dark-brown text-center font-semibold opacity-80">
-            {quotes[currentQuoteIndex].character}
-          </p>
+          <div className="flex flex-col items-center gap-4">
+            <p className="text-lg md:text-xl text-dark-brown text-center font-semibold opacity-80">
+              {quotes[currentQuoteIndex].character}
+            </p>
+            {quotes[currentQuoteIndex].quote === "I'm not a Krusty Krab!" && (
+              <button
+                onClick={() => {
+                  if (audioRef.current) {
+                    if (isPlaying) {
+                      audioRef.current.pause();
+                      audioRef.current.currentTime = 0;
+                      setIsPlaying(false);
+                    } else {
+                      audioRef.current.play();
+                      setIsPlaying(true);
+                    }
+                  }
+                }}
+                className="bg-spongebob-yellow text-deep-navy font-bold px-6 py-3 rounded-xl border-2 border-dark-brown hover:bg-pineapple-orange hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-2"
+              >
+                {isPlaying ? (
+                  <>
+                    <span>⏸</span>
+                    <span>Stop</span>
+                  </>
+                ) : (
+                  <>
+                    <span>▶</span>
+                    <span>Play</span>
+                  </>
+                )}
+              </button>
+            )}
+          </div>
+          <audio
+            ref={audioRef}
+            src="/mp3s/im-not-a-krusty-krab.mp3"
+            onEnded={() => setIsPlaying(false)}
+          />
         </div>
       </div>
 
