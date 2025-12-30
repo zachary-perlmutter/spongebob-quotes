@@ -49,6 +49,125 @@ const quotes = [
     character: "SpongeBob SquarePants",
   },
   { quote: "I'm not a Krusty Krab!", character: "SpongeBob SquarePants" },
+  {
+    quote:
+      "Oh, why must every eleven minutes of my life be filled with misery?",
+    character: "Squidward Tentacles",
+  },
+  {
+    quote:
+      "I order the food, you cook the food. The customer gets the food. We do that for 40 years, and then we die.",
+    character: "Squidward Tentacles",
+  },
+  {
+    quote:
+      "Too bad SpongeBob isn't here to enjoy SpongeBob not being here.",
+    character: "Squidward Tentacles",
+  },
+  {
+    quote: "I wonder if a fall from this height would be enough to kill me.",
+    character: "Squidward Tentacles",
+  },
+  { quote: "Money!", character: "Mr. Krabs" },
+  {
+    quote:
+      "Do you smell it? That smell. A kind of smelly smell. The smelly smell that smells... smelly.",
+    character: "Mr. Krabs",
+  },
+  {
+    quote: "Hello, customers! How may I serve you today?",
+    character: "Mr. Krabs",
+  },
+  {
+    quote:
+      "Hear me, Krabs! When I discover your formula for Krabby Patties, I'll run you out of business!",
+    character: "Plankton",
+  },
+  {
+    quote: "It's evil. It's diabolical. It's lemon-scented!",
+    character: "Plankton",
+  },
+  {
+    quote:
+      "His chops are too righteous! The helmets can't handle this level of rock 'n' roll!",
+    character: "Plankton",
+  },
+  { quote: "Finland!", character: "Patrick Star" },
+  {
+    quote: "Who you calling Pinhead? I wanna be Dirty Dan!",
+    character: "Patrick Star",
+  },
+  { quote: "East? I thought you said weast!", character: "Patrick Star" },
+  { quote: "I can't see my forehead!", character: "Patrick Star" },
+  {
+    quote: "Don't you dare take the name of Texas in vain!",
+    character: "Sandy Cheeks",
+  },
+  { quote: "Yee-haw! Sound the alarm, y'all!", character: "Sandy Cheeks" },
+  {
+    quote:
+      "Home is where you're surrounded by other critters that care about ya.",
+    character: "Sandy Cheeks",
+  },
+  { quote: "Oh, SpongeBob... whyyyyy?!", character: "Mrs. Puff" },
+  {
+    quote:
+      "What I learned in boating school is... blankety, blankety, blank!",
+    character: "Mrs. Puff",
+  },
+  { quote: "No more SpongeBob!", character: "Mrs. Puff" },
+  { quote: "Meow.", character: "Gary the Snail" },
+  {
+    quote:
+      "There once was a man from Peru who dreamed he was eating his shoe...",
+    character: "Gary the Snail",
+  },
+  {
+    quote:
+      "Once there was an ugly barnacle. He was so ugly that everyone died. The end.",
+    character: "Patrick Star",
+  },
+  {
+    quote: "We should take Bikini Bottom and push it somewhere else!",
+    character: "Patrick Star",
+  },
+  { quote: "Firmly grasp it!", character: "Patrick Star" },
+  { quote: "I hate all of you.", character: "Squidward Tentacles" },
+  {
+    quote:
+      "Boy, that critter put up some sort of fight, but as you can see, I'm from Texas!",
+    character: "Sandy Cheeks",
+  },
+  { quote: "Felicitations, malefactors!", character: "Plankton" },
+  {
+    quote:
+      "The boy cries you a sweater of tears... and you kill him.",
+    character: "Squidward Tentacles",
+  },
+  {
+    quote: "Hello, delivery for Mr. Squidward Tentacles?",
+    character: "Delivery Fish",
+  },
+  {
+    quote:
+      "All bubble-blowing babies will be beaten senseless by every able-bodied patron in the bar!",
+    character: "Thugs",
+  },
+  {
+    quote: "It's not just a boulder... it's a rock!",
+    character: "SpongeBob SquarePants",
+  },
+  { quote: "Chocolate! CHOCOLATE!", character: "Patrick Star" },
+  {
+    quote:
+      "If I were to die right now in a fiery explosion due to the carelessness of a friend... well, that would just be okay.",
+    character: "SpongeBob SquarePants",
+  },
+  {
+    quote:
+      "Knowledge can't replace friendship. I'd rather be an idiot than lose you.",
+    character: "Patrick Star",
+  },
 ];
 
 export default function Home() {
