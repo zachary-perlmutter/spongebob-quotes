@@ -167,19 +167,68 @@ const quotes = [
   },
 ];
 
+// Get unique characters from quotes
+const characters = Array.from(new Set(quotes.map((q) => q.character))).sort();
+
 export default function Home() {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [buttonAnimation, setButtonAnimation] = useState("");
+  const [selectedCharacter, setSelectedCharacter] = useState<string | null>(
+    null
+  );
+
+  // Get filtered quotes based on selected character
+  const filteredQuotes = selectedCharacter
+    ? quotes.filter((q) => q.character === selectedCharacter)
+    : quotes;
 
   const getRandomQuote = () => {
-    let newIndex;
-    do {
-      newIndex = Math.floor(Math.random() * quotes.length);
-    } while (newIndex === currentQuoteIndex && quotes.length > 1);
+    if (filteredQuotes.length === 0) return;
 
-    setCurrentQuoteIndex(newIndex);
-    setButtonAnimation("animate-wiggle");
-    setTimeout(() => setButtonAnimation(""), 500);
+    const currentQuote = quotes[currentQuoteIndex];
+    let newIndex;
+    let attempts = 0;
+    do {
+      newIndex = Math.floor(Math.random() * filteredQuotes.length);
+      attempts++;
+      // Prevent infinite loop if only one quote available
+      if (attempts > 100) break;
+    } while (
+      filteredQuotes[newIndex].quote === currentQuote.quote &&
+      filteredQuotes[newIndex].character === currentQuote.character &&
+      filteredQuotes.length > 1
+    );
+
+    // Find the index in the original quotes array
+    const quote = filteredQuotes[newIndex];
+    const originalIndex = quotes.findIndex(
+      (q) => q.quote === quote.quote && q.character === quote.character
+    );
+
+    if (originalIndex !== -1) {
+      setCurrentQuoteIndex(originalIndex);
+      setButtonAnimation("animate-wiggle");
+      setTimeout(() => setButtonAnimation(""), 500);
+    }
+  };
+
+  const handleCharacterSelect = (character: string | null) => {
+    setSelectedCharacter(character);
+    // Get a random quote from the selected character (or all if null)
+    const quotesToUse = character
+      ? quotes.filter((q) => q.character === character)
+      : quotes;
+    if (quotesToUse.length > 0) {
+      const randomQuote =
+        quotesToUse[Math.floor(Math.random() * quotesToUse.length)];
+      const originalIndex = quotes.findIndex(
+        (q) =>
+          q.quote === randomQuote.quote && q.character === randomQuote.character
+      );
+      if (originalIndex !== -1) {
+        setCurrentQuoteIndex(originalIndex);
+      }
+    }
   };
 
   return (
@@ -198,6 +247,55 @@ export default function Home() {
           <p className="text-lg md:text-xl text-dark-brown text-center font-semibold opacity-80">
             {quotes[currentQuoteIndex].character}
           </p>
+        </div>
+      </div>
+
+      {/* Character filter buttons */}
+      <div className="w-full max-w-4xl mb-8">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+          <button
+            onClick={() => handleCharacterSelect(null)}
+            className={`
+              px-4 md:px-6 
+              py-2 md:py-3 
+              rounded-xl 
+              font-bold 
+              text-sm md:text-base
+              border-2 
+              transition-all 
+              duration-200
+              ${
+                selectedCharacter === null
+                  ? "bg-spongebob-yellow text-deep-navy border-dark-brown shadow-lg scale-105"
+                  : "bg-white text-deep-navy border-dark-brown/30 hover:bg-sand-beige hover:border-dark-brown/50"
+              }
+            `}
+          >
+            All
+          </button>
+          {characters.map((character) => (
+            <button
+              key={character}
+              onClick={() => handleCharacterSelect(character)}
+              className={`
+                px-4 md:px-6 
+                py-2 md:py-3 
+                rounded-xl 
+                font-bold 
+                text-sm md:text-base
+                border-2 
+                transition-all 
+                duration-200
+                ${
+                  selectedCharacter === character
+                    ? "bg-spongebob-yellow text-deep-navy border-dark-brown shadow-lg scale-105"
+                    : "bg-white text-deep-navy border-dark-brown/30 hover:bg-sand-beige hover:border-dark-brown/50"
+                }
+              `}
+            >
+              {character}
+            </button>
+          ))}
         </div>
       </div>
 
