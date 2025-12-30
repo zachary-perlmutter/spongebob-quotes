@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const quotes = [
   {
@@ -286,6 +287,7 @@ export default function Home() {
                 border-2 
                 transition-all 
                 duration-200
+                flex items-center gap-2
                 ${
                   selectedCharacter === character
                     ? "bg-spongebob-yellow text-deep-navy border-dark-brown shadow-lg scale-105"
@@ -293,6 +295,15 @@ export default function Home() {
                 }
               `}
             >
+              {character === "SpongeBob SquarePants" && (
+                <Image
+                  src="/images/spongebob.png"
+                  alt="SpongeBob"
+                  width={24}
+                  height={24}
+                  className="object-contain"
+                />
+              )}
               {character}
             </button>
           ))}
